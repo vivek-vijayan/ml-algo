@@ -133,11 +133,13 @@ if __name__ == "__main__":
     centroid = get_initial_centroid(points)
     
     index = 50
-    while index > 0:
+    while True:
         # Step 2 - Find ther distance of all the other points
         new_centroid = get_distance_of_all_points(centroid=centroid, datapoints=points)
 
         # Step 3: Display the groups:
         display_groups(dataset=points)
 
-        index -= 1
+        if centroid == new_centroid:
+            break
+        centroid = new_centroid
